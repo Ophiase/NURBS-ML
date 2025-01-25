@@ -1,10 +1,10 @@
 import numpy as np
-from nurbs.nurbs import NURBS
+from nurbs.curve import NURBSCurve
 
 
 class NURBSFitter:
     @staticmethod
-    def interpolate(points: np.ndarray, degree: int = 3) -> NURBS:
+    def interpolate(points: np.ndarray, degree: int = 3) -> NURBSCurve:
         n = len(points)
         params = NURBSFitter.chord_length_parameterization(points)
         knots = NURBSFitter.generate_knots(params, degree)
@@ -36,10 +36,10 @@ class NURBSFitter:
 
     @staticmethod
     def solve_constraints(points: np.ndarray, params: np.ndarray,
-                          knots: np.ndarray, degree: int) -> NURBS:
+                          knots: np.ndarray, degree: int) -> NURBSCurve:
         n = len(points)
         A = np.zeros((n, n))
-        temp_nurbs = NURBS(
+        temp_nurbs = NURBSCurve(
             control_points=np.zeros((n, points.shape[1])),
             weights=np.ones(n),
             knots=knots,
@@ -53,7 +53,7 @@ class NURBSFitter:
                 col = span - degree + j
                 A[i, col] = basis[j]
 
-        return NURBS(
+        return NURBSCurve(
             control_points=np.linalg.lstsq(A, points, rcond=None)[0],
             weights=np.ones(n),
             knots=knots,

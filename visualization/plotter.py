@@ -3,11 +3,12 @@ from mpl_toolkits.mplot3d import Axes3D
 from typing import Optional, Tuple
 
 import numpy as np
-from nurbs.nurbs import NURBS
+from nurbs.curve import NURBSCurve
+
 
 class NURBSPresenter:
     @staticmethod
-    def render(nurbs: NURBS, samples: int = 100,
+    def render(nurbs: NURBSCurve, samples: int = 100,
                ax: Optional[plt.Axes] = None) -> Tuple[plt.Figure, plt.Axes]:
         is_3d = nurbs.control_points.shape[1] > 2
         fig, ax = NURBSPresenter.prepare_canvas(ax, is_3d)
@@ -29,7 +30,7 @@ class NURBSPresenter:
         return ax.figure, ax
 
     @staticmethod
-    def sample_curve(nurbs: NURBS, samples: int) -> np.ndarray:
+    def sample_curve(nurbs: NURBSCurve, samples: int) -> np.ndarray:
         domain = [nurbs.knots[nurbs.degree], nurbs.knots[-nurbs.degree-1]]
         return np.array([nurbs.evaluate(t) for t in np.linspace(*domain, samples)])
 

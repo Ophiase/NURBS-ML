@@ -1,5 +1,5 @@
 import numpy as np
-from nurbs.nurbs import NURBS
+from nurbs.curve import NURBS
 
 
 class TestNURBS:

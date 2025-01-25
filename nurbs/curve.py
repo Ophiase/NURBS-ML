@@ -1,10 +1,9 @@
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional
 
 
 @dataclass
-class NURBS:
+class NURBSCurve:
     control_points: np.ndarray  # (n, dim)
     weights: np.ndarray         # (n,)
     knots: np.ndarray           # (m,)
