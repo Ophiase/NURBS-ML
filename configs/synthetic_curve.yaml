@@ -1,0 +1,13 @@
+synthetic:
+  num_samples: 1000
+  curve_types: ["helix", "random", "constrained"]
+  noise_level: 0.1
+  z_clip: [0, 3]
+
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  epochs: 100
+  model_save_path: "models/saved/nurbs_net.pt"
+  hidden_dim: 256
+  output_control_points: 20  # Must match NURBSFitter configuration
