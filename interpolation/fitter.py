@@ -1,6 +1,7 @@
 import numpy as np
 from nurbs.core import NURBS
 
+
 class NURBSFitter:
     @staticmethod
     def interpolate(points: np.ndarray, degree: int = 3) -> NURBS:
@@ -34,8 +35,8 @@ class NURBSFitter:
         ])
 
     @staticmethod
-    def solve_constraints(points: np.ndarray, params: np.ndarray, 
-                        knots: np.ndarray, degree: int) -> NURBS:
+    def solve_constraints(points: np.ndarray, params: np.ndarray,
+                          knots: np.ndarray, degree: int) -> NURBS:
         n = len(points)
         A = np.zeros((n, n))
         temp_nurbs = NURBS(
@@ -44,14 +45,14 @@ class NURBSFitter:
             knots=knots,
             degree=degree
         )
-        
+
         for i, t in enumerate(params):
             span = temp_nurbs.find_span(t)
             basis = temp_nurbs.basis_functions(span, t)
             for j in range(degree + 1):
                 col = span - degree + j
                 A[i, col] = basis[j]
-                
+
         return NURBS(
             control_points=np.linalg.lstsq(A, points, rcond=None)[0],
             weights=np.ones(n),
