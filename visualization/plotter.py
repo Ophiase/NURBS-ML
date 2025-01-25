@@ -3,7 +3,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from typing import Optional, Tuple
 
 import numpy as np
-from nurbs.core import NURBS
+from nurbs.nurbs import NURBS
 
 class NURBSPresenter:
     @staticmethod

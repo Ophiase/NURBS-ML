@@ -41,6 +41,8 @@ class NURBS:
         return low
 
     def basis_functions(self, span: int, t: float) -> np.ndarray:
+        # Cox-de Boor formula: https://en.wikipedia.org/wiki/De_Boor%27s_algorithm
+
         knots = self.knots
         degree = self.degree
         left = np.zeros(degree + 1)

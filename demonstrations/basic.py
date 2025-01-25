@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from nurbs.core import NURBS
+from nurbs.nurbs import NURBS
 from visualization.plotter import NURBSPresenter
 
 def run():
