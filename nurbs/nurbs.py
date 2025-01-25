@@ -26,6 +26,14 @@ class NURBS:
         return self.calculate_point(basis, span)
 
     def find_span(self, t: float) -> int:
+        '''
+            Which interval contains t.
+            Eg:
+                knots = [0, 0, 0, 1, 2, 3]
+                find_span(t=0.5) = 2 ([0, 1])
+                find_span(t=1.5) = 3 ([1, 2]) 
+        '''
+
         knots = self.knots
         n = len(self.control_points) - 1
         if t >= knots[n + 1]:
