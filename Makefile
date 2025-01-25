@@ -7,4 +7,7 @@ demo:
 tests:
 	python3 -m pytest tests/
 
-.PHONY: demo tests
+tests_verbose:
+	python3 -m pytest tests/ -v
+
+.PHONY: demo tests tests_verbose
