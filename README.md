@@ -1,6 +1,6 @@
-# Nurbs-Study
+# Nurbs Study
 
-Machine learning for Nurbs
+Machine learning for NURBS ([Non-uniform rational B-spline](https://en.wikipedia.org/wiki/Non-uniform_rational_B-spline))
 
 ## Run
 
