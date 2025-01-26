@@ -5,7 +5,7 @@ from demonstrations import basic, interpolation, surface, synthetic_generation
 def main():
     parser = argparse.ArgumentParser(description="NURBS Demonstration System")
     parser.add_argument('--demo', 
-        choices=['basic', 'interpolation', 'surface', 'synthetic', 'hybrid'],
+        choices=['basic', 'interpolation', 'surface', 'synthetic'],
         help="Demonstration to run")
     parser.add_argument('--train', action='store_true',
                       help="Train the NURBS-ML model")
@@ -25,7 +25,6 @@ def main():
             case 'interpolation': interpolation.run()
             case 'surface': surface.run()
             case 'synthetic': synthetic_generation.run(config)
-            # case 'hybrid': hybrid_fitting.run(config)
     else:
         print("Please specify either --train or --demo")
 

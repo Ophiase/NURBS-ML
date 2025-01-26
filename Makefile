@@ -1,8 +1,8 @@
 demo:
-	@echo "Basic demo"
-	python3 -m main --demonstration basic
-	@echo "Interpolation demo"
-	python3 -m main --demonstration interpolation
+	@echo "Synthetic demo"
+	python3 -m main --demo synthetic
+	@echo "Surface demo"
+	python3 -m main --demo surface
 
 tests:
 	python3 -m pytest tests/
