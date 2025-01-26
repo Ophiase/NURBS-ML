@@ -1,8 +1,8 @@
 demo:
 	@echo "Synthetic demo"
-	python3 -m main --demo synthetic
+	python3 -m main --demo synthetic &
 	@echo "Surface demo"
-	python3 -m main --demo surface
+	python3 -m main --demo surface &
 
 tests:
 	python3 -m pytest tests/
