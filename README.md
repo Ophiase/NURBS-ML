@@ -52,7 +52,7 @@ python3 -m main --demo <which_demo>
 
 ## Closest NURBS Curve
 
-Given a point cloud $P = \{p_i \in \mathbb{R}^3\}_{i=1}^N$, we want to find a NURBS curve $C(t)$ that minimizes the distance to the point cloud. The curve is defined by:
+Given a point cloud $P = \set{p_i \in \mathbb{R}^3}_{i=1}^N$, we want to find a NURBS curve $C(t)$ that minimizes the distance to the point cloud. The curve is defined by:
 - **Control points** $\{c_j \in \mathbb{R}^3\}_{j=1}^M$
 - **Weights** $\{w_j \in \mathbb{R}\}_{j=1}^M$
 - **Knot vector** $\{u_k\}_{k=1}^{M+d+1}$ (where $d$ is the degree)
